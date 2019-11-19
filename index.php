@@ -52,11 +52,11 @@ $commentSender->sendPost();
 $linkSender->sendPost();
 
 $array = new IntArraySort(Array(1, 8, -4, 6, 2, 15, 0, -2));
-$stringArray = new StringSort("string 1");
+$stringArray = new StringSort("sSRtring 1");
 $sort = new SortArray();
 
 $sortedIntArray = $sort->sort($array);
-$sortedStringArray = implode($sort->sort($stringArray));
+$sortedStringArray = $sort->sort($stringArray);
 
 foreach ($sortedIntArray as $i){
     echo $i;

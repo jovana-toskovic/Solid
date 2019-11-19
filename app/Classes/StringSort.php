@@ -5,26 +5,28 @@ use App\Contracts\SortArrayInterface;
 
 class StringSort implements SortArrayInterface
 {
-    public $string;
     public $array;
 
     public function __construct(string $string)
     {
-        $this->string = $string;
-        $this->array = str_split($this->string); 
+        $this->array = str_split($string); 
     }
-    public function getArray(): array
+    public function get(): string
     {
-        return $this->array;
+        return implode($this->array);
     }
-    public function check(?int $i, ?int $j, array $array): bool
+    public function length(): int
     {
-        return $array[$j] > $array[$i];
+        return count($this->array);
     }
-    public function swap(?int $next, ?int $previous, array $array)
+    public function check(?int $i, ?int $j): bool
     {
-        $p = $array[$previous];
-        $this->array[$previous] = $array[$next];
+        return $this->array[$j] > $this->array[$i];
+    }
+    public function swap(?int $next, ?int $previous)
+    {
+        $p = $this->array[$previous];
+        $this->array[$previous] = $this->array[$next];
         $this->array[$next] = $p;
     }
 }

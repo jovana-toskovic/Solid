@@ -11,18 +11,22 @@ class IntArraySort implements SortArrayInterface
     {
         $this->array = $array;
     }
-    public function getArray(): array
+    public function get(): array
     {
         return $this->array;
     }
-    public function check(?int $i, ?int $j, array $array): bool
+    public function length(): int
     {
-        return $array[$j] > $array[$i];
+        return count($this->array);
     }
-    public function swap(?int $next, ?int $previous, array $array)
+    public function check(?int $i, ?int $j): bool
     {
-        $p = $array[$previous];
-        $this->array[$previous] = $array[$next];
+        return $this->array[$j] > $this->array[$i];
+    }
+    public function swap(?int $next, ?int $previous)
+    {
+        $p = $this->array[$previous];
+        $this->array[$previous] = $this->array[$next];
         $this->array[$next] = $p;
     }
 }
