@@ -5,14 +5,18 @@ use App\Contracts\SortArrayInterface;
 
 class StringSort implements SortArrayInterface
 {
+    // not need
     public $string;
+    // change to private
     public $array;
 
     public function __construct(string $string)
     {
+        // not need
         $this->string = $string;
         $this->array = str_split($this->string); 
     }
+    // this metod need to return string, change name to get()
     public function getArray(): array
     {
         return $this->array;
